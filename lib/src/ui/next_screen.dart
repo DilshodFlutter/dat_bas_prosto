@@ -1,20 +1,19 @@
 import 'package:dat_bas_prosto/src/block/data_block.dart';
 import 'package:dat_bas_prosto/src/model/data_model.dart';
-import 'package:dat_bas_prosto/src/ui/next_screen.dart';
+import 'package:dat_bas_prosto/src/ui/final_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class DataScreen extends StatefulWidget {
-  const DataScreen({Key? key}) : super(key: key);
+class NextScreen extends StatefulWidget {
+  const NextScreen({Key? key}) : super(key: key);
 
   @override
-  State<DataScreen> createState() => _DataScreenState();
+  State<NextScreen> createState() => _NextScreenState();
 }
 
-class _DataScreenState extends State<DataScreen> {
-  final TextEditingController _controllerName = TextEditingController();
-  final TextEditingController _controllerKritName = TextEditingController();
+class _NextScreenState extends State<NextScreen> {
   final TextEditingController _controllerKritNextName = TextEditingController();
+  final TextEditingController _controllerKritName = TextEditingController();
 
   @override
   void initState() {
@@ -94,7 +93,7 @@ class _DataScreenState extends State<DataScreen> {
                         //  padding: EdgeInsets.all(15.0),
                         width: MediaQuery.of(context).size.width - 80,
                         child: TextField(
-                          controller: _controllerKritName,
+                          controller: _controllerKritNextName,
                           decoration: const InputDecoration(
                               border: InputBorder.none,
                               hintText: "Name",
@@ -114,15 +113,17 @@ class _DataScreenState extends State<DataScreen> {
                         onPressed: () async {
                           dataBlock.saveData(
                             DataModel(
-                              name: _controllerName.text,
-                              kritName: _controllerKritName.text,
-                              kritNextName: _controllerKritNextName.text,
+                              name: '',
+                              kritName: '',
+                              kritNextName: '',
                             ),
                           );
-                          _controllerKritName.text = "";
+                          _controllerKritNextName.text = "";
                           Navigator.push(context,
                               MaterialPageRoute(builder: (builder) {
-                            return NextScreen();
+                            if (_controllerKritNextName == _controllerKritName)
+                              ;
+                            return FinalSCreen();
                           }));
                         },
                         child: const SizedBox(

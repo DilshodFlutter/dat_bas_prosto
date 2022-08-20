@@ -12,6 +12,7 @@ class DatabaseHelper {
   final String columnId = 'id';
   final String columnName = 'name';
   final String columnkritName = 'kritName';
+  final String columnkritNextName = 'kritNextName';
 
   static Database? _db;
 
@@ -36,9 +37,10 @@ class DatabaseHelper {
   void _onCreate(Database db, int newVersion) async {
     await db.execute(
       'CREATE TABLE $tableName('
-          '$columnId INTEGER PRIMARY KEY AUTOINCREMENT,'
-          '$columnName TEXT,'
-          '$columnkritName TEXT)',
+      '$columnId INTEGER PRIMARY KEY AUTOINCREMENT,'
+      '$columnName TEXT,'
+      '$columnkritName TEXT'
+      '$columnkritNextName TEXT)',
     );
   }
 
@@ -60,6 +62,7 @@ class DatabaseHelper {
         id: list[i][columnId],
         name: list[i][columnName],
         kritName: list[i][columnkritName],
+        kritNextName: list[i][columnkritNextName],
       );
       products.add(items);
     }
@@ -75,6 +78,7 @@ class DatabaseHelper {
         id: list[i][columnId],
         name: list[i][columnName],
         kritName: list[i][columnkritName],
+        kritNextName: list[i][columnkritNextName],
       );
       products.add(items);
     }
@@ -94,6 +98,7 @@ class DatabaseHelper {
           id: list[i][columnId],
           name: list[i][columnName],
           kritName: list[i][columnkritName],
+          kritNextName: list[i][columnkritNextName],
         );
         products.add(items);
       }
