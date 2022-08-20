@@ -11,7 +11,7 @@ class _FinalSCreenState extends State<FinalSCreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Center(
+      child: const Center(
         child: Text('OK'),
       ),
     );

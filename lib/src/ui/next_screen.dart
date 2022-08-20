@@ -55,7 +55,7 @@ class _NextScreenState extends State<NextScreen> {
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           child: Text(
-                            data[index].kritName,
+                            data[index].kritNextName,
                             style: const TextStyle(fontSize: 20),
                           ),
                         ),
@@ -115,7 +115,7 @@ class _NextScreenState extends State<NextScreen> {
                             DataModel(
                               name: '',
                               kritName: '',
-                              kritNextName: '',
+                              kritNextName: _controllerKritNextName.text,
                             ),
                           );
                           _controllerKritNextName.text = "";
